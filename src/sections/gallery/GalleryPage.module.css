@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: calc(var(--space-lg) + var(--space-md)) var(--content-padding-inline) var(--space-sm);
+  padding: calc(var(--space-lg) + var(--space-md)) var(--content-padding-inline) var(--space-md);
   overflow: hidden;
 }
 
@@ -36,11 +36,90 @@
   margin-top: var(--space-2xs);
   font-family: var(--font-serif);
   font-size: var(--text-section);
+  max-width: 20ch;
 }
 
 .subtitle {
   position: relative;
-  margin-top: var(--space-3xs);
+  margin-top: var(--space-sm);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-quote);
+  color: var(--color-muted);
+  max-width: 26ch;
+  line-height: var(--leading-snug);
+}
+
+/* ============ Collection index — editorial, bukan tab dashboard ============ */
+.collectionIndex {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md) var(--space-xl);
+  margin-top: var(--space-xl);
+  padding: 0 var(--content-padding-inline);
+}
+
+.collectionIndexItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  color: var(--color-charcoal);
+  opacity: 0.6;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.collectionIndexItem:hover,
+.collectionIndexItem:focus-visible {
+  opacity: 1;
+}
+
+.collectionIndexNumber {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  color: var(--color-pink-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.collectionIndexLabel {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-ui);
+}
+
+/* ============ Collection section ============ */
+.collection {
+  padding-top: var(--space-2xl);
+  scroll-margin-top: var(--space-lg);
+}
+
+.collectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3xs);
+  padding: 0 var(--content-padding-inline) var(--space-lg);
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+}
+
+.collectionEyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-pink-deep);
+}
+
+.collectionTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-section);
+}
+
+.collectionTagline {
   font-family: var(--font-sans);
   font-size: var(--text-ui);
   color: var(--color-muted);
@@ -64,6 +143,39 @@
   }
 }
 
+/* Little Things: rhythm lebih rapat/playful -- benda-benda kecil */
+.gridTight {
+  gap: var(--space-2xs);
+}
+
+@media (min-width: 40rem) {
+  .gridTight {
+    gap: var(--space-sm);
+  }
+}
+
+/* Our Chapters: rhythm arsip -- sedikit lebih lega, card sudah framed */
+.gridArchive {
+  gap: var(--space-md);
+}
+
+@media (min-width: 40rem) {
+  .gridArchive {
+    gap: var(--space-lg);
+  }
+}
+
+/* Through My Camera: satu jalur, besar, banyak whitespace -- bukan grid
+   tier sama sekali, sengaja beda dari 3 koleksi lain. */
+.gridCinematic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding: 0 var(--content-padding-inline);
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
 /* ============ Empty state ============ */
 .emptyState {
   display: flex;
@@ -72,7 +184,7 @@
   text-align: center;
   gap: var(--space-2xs);
   max-width: 24rem;
-  margin: var(--space-2xl) auto 0;
+  margin: 0 auto;
   padding: var(--space-xl) var(--content-padding-inline);
 }
 

@@ -8,6 +8,18 @@
   transition: transform var(--duration-normal) var(--ease-out-soft);
 }
 
+/* Treatment "archive" -- frame lebih tegas + padding, kesan halaman arsip
+   bukan screenshot mentah. Dipakai khusus koleksi Our Chapters. */
+.framed {
+  padding: var(--space-2xs);
+  background-color: var(--color-warm-white);
+  box-shadow: 0 1px 3px rgba(43, 38, 34, 0.08);
+}
+
+.framed .frame {
+  border-radius: var(--radius-sm);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .card:hover,
   .card:focus-visible {

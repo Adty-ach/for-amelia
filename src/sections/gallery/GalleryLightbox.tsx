@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import type { Photo } from "../../data/photos";
+import { collectionLabels, type Photo } from "../../data/photos";
 import { useSwipeNavigation } from "../../hooks/useSwipeNavigation";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { fadeVariants } from "../../utils/motion";
@@ -129,6 +129,7 @@ export function GalleryLightbox({ photos, index, onClose, onNext, onPrevious }: 
             <span className={styles.metaCaption} data-fallback={!photo.caption}>
               {photo.caption ?? "Catatan untuk momen ini menyusul."}
             </span>
+            <span className={styles.metaCollection}>{collectionLabels[photo.collection]}</span>
           </div>
 
           <span className={styles.counter} aria-live="polite">

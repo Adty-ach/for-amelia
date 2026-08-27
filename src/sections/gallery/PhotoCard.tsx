@@ -9,6 +9,8 @@ interface PhotoCardProps {
   photo: Photo;
   index: number;
   onOpen: () => void;
+  /** Treatment "archive" — frame lebih tegas, dipakai khusus Our Chapters. */
+  framed?: boolean;
 }
 
 const tierClass = {
@@ -23,7 +25,7 @@ const tierClass = {
  * aspect-ratio fotografis asli sesuai `photo.orientation` (bukan
  * proporsi kotak yang dipaksakan), dan tetap bisa dibuka ke lightbox.
  */
-export function PhotoCard({ photo, index, onOpen }: PhotoCardProps) {
+export function PhotoCard({ photo, index, onOpen, framed = false }: PhotoCardProps) {
   const [loaded, setLoaded] = useState(false);
   const hasImage = Boolean(photo.src);
   const hasMetadata = Boolean(photo.caption || photo.date);
@@ -32,7 +34,7 @@ export function PhotoCard({ photo, index, onOpen }: PhotoCardProps) {
   return (
     <motion.button
       type="button"
-      className={`${styles.card} ${tierClass[tier]}`}
+      className={`${styles.card} ${tierClass[tier]} ${framed ? styles.framed : ""}`}
       variants={slideUpVariants}
       onClick={onOpen}
       aria-label={photo.caption ? `Buka foto: ${photo.caption}` : "Buka foto"}
