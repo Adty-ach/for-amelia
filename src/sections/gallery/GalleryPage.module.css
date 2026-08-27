@@ -1,0 +1,90 @@
+.page {
+  min-height: 100dvh;
+  background-color: var(--color-warm-white);
+  color: var(--color-charcoal);
+  padding-bottom: var(--space-3xl);
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: calc(var(--space-lg) + var(--space-md)) var(--content-padding-inline) var(--space-sm);
+  overflow: hidden;
+}
+
+.introWash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(30rem 16rem at 50% 0%, rgba(217, 168, 172, 0.16), transparent 65%);
+}
+
+.eyebrow {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-pink-deep);
+}
+
+.title {
+  position: relative;
+  margin-top: var(--space-2xs);
+  font-family: var(--font-serif);
+  font-size: var(--text-section);
+}
+
+.subtitle {
+  position: relative;
+  margin-top: var(--space-3xs);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  color: var(--color-muted);
+}
+
+/* ============ Grid editorial — 6 kolom desktop, lebar tiap foto dari tier (lihat PhotoCard) ============ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: var(--space-sm);
+  padding: 0 var(--content-padding-inline);
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+}
+
+@media (min-width: 40rem) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+/* ============ Empty state ============ */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2xs);
+  max-width: 24rem;
+  margin: var(--space-2xl) auto 0;
+  padding: var(--space-xl) var(--content-padding-inline);
+}
+
+.emptyIcon {
+  font-size: 1.5rem;
+  color: var(--color-pink-primary);
+  opacity: 0.7;
+}
+
+.emptyText {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-quote);
+  color: var(--color-muted);
+}

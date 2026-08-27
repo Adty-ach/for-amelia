@@ -1,0 +1,111 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+
+.hint {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-off-white);
+  opacity: 0.55;
+  text-align: center;
+}
+
+.instruction {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-ui);
+  color: var(--color-off-white);
+  opacity: 0.7;
+  text-align: center;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(16rem, 70vw);
+  height: 4.5rem;
+  padding: 0 0.75rem;
+}
+
+.glowBurst {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 168, 172, 0.55), rgba(143, 168, 191, 0.35) 55%, transparent 75%);
+  pointer-events: none;
+}
+
+.dot {
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: none;
+  touch-action: none;
+  cursor: grab;
+}
+
+.dot:active {
+  cursor: grabbing;
+}
+
+.pinkDot {
+  background: radial-gradient(circle at 35% 30%, #f6dede, var(--color-pink-primary) 55%, var(--color-pink-deep));
+  box-shadow: 0 0 18px 4px rgba(217, 168, 172, 0.5);
+  z-index: 2;
+}
+
+.blueDot {
+  background: radial-gradient(circle at 35% 30%, #dbe6ef, var(--color-blue-primary) 55%, var(--color-blue-deep));
+  box-shadow: 0 0 18px 4px rgba(143, 168, 191, 0.4);
+  cursor: pointer;
+}
+
+.dotLabel {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-off-white);
+  opacity: 0.55;
+  white-space: nowrap;
+}
+
+.revealGroup {
+  min-height: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3xs);
+  text-align: center;
+}
+
+.revealPrimary {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2vw + 0.9rem, 1.5rem);
+  color: var(--color-pink-primary);
+}
+
+.revealSecondary {
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-off-white);
+  opacity: 0.75;
+}

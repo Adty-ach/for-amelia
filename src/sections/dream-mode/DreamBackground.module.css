@@ -1,0 +1,78 @@
+.background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: #17171c;
+}
+
+/* ============ Layer 2 & 3: glow biru + pink besar, blurred ============ */
+.glowBlue {
+  position: absolute;
+  top: -10%;
+  left: -15%;
+  width: 55rem;
+  height: 45rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(62, 92, 118, 0.55), transparent 70%);
+  filter: blur(70px);
+}
+
+.glowPink {
+  position: absolute;
+  bottom: -15%;
+  right: -10%;
+  width: 50rem;
+  height: 42rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 168, 172, 0.32), transparent 70%);
+  filter: blur(70px);
+}
+
+.glowLavender {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 34rem;
+  height: 30rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 130, 191, 0.16), transparent 70%);
+  filter: blur(80px);
+}
+
+/* ============ Layer 4: bintang -- sedikit, bukan galaksi ============ */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: var(--color-warm-white);
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    animation: none;
+    opacity: 0.4;
+  }
+}
+
+/* ============ Layer 5: grain sangat halus ============ */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: radial-gradient(rgba(251, 248, 243, 0.9) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}

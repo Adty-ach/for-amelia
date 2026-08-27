@@ -1,0 +1,110 @@
+.wrapper {
+  position: fixed;
+  right: var(--space-sm);
+  bottom: var(--space-sm);
+  z-index: var(--z-player);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: rgba(251, 248, 243, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xs) var(--space-xs);
+  box-shadow: 0 2px 24px rgba(43, 38, 34, 0.08);
+  max-width: calc(100vw - var(--space-sm) * 2);
+}
+
+.trackInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 9.5rem;
+}
+
+.trackTitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackArtist {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3xs);
+}
+
+.controlButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target-min);
+  min-height: var(--tap-target-min);
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  transition: color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.controlButton:hover {
+  background-color: var(--color-pink-soft);
+  color: var(--color-pink-deep);
+}
+
+.playButton {
+  color: var(--color-warm-white);
+  background-color: var(--color-pink-deep);
+  border-radius: 50%;
+}
+
+.playButton:hover {
+  background-color: var(--color-pink-deep);
+  color: var(--color-warm-white);
+  opacity: 0.9;
+}
+
+.progressTrack {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-off-white);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  appearance: none;
+  accent-color: var(--color-pink-deep);
+}
+
+.expandedPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  min-width: 12rem;
+}
+
+.expandToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target-min);
+  min-height: var(--tap-target-min);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 30rem) {
+  .trackInfo {
+    max-width: 6rem;
+  }
+}

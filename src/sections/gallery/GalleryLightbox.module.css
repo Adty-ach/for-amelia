@@ -1,0 +1,237 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-transition-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(30, 26, 23, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: var(--space-lg) var(--content-padding-inline);
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  max-width: 100%;
+}
+
+.imageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  Kunci perbaikan lightbox: foto/placeholder dibatasi oleh dua sumbu
+  sekaligus (lebar DAN tinggi), bukan hanya salah satu -- inilah yang
+  sebelumnya membuat foto terlihat terpotong. object-fit: contain pada
+  <img> menjamin foto tidak pernah di-crop, hanya diperkecil proporsional.
+*/
+.image {
+  display: block;
+  max-width: 76vw;
+  max-height: 64vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.65);
+  outline: 1px solid rgba(251, 248, 243, 0.14);
+  outline-offset: 1px;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 76vw;
+  max-height: 64vh;
+  border-radius: var(--radius-sm);
+  position: relative;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.65);
+  outline: 1px solid rgba(251, 248, 243, 0.14);
+  outline-offset: 1px;
+}
+
+.placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(251, 248, 243, 0.4);
+  pointer-events: none;
+}
+
+/* Jaring pengaman: kalau aspect-ratio gagal ter-resolve di kondisi
+   tertentu, placeholder tidak boleh collapse jadi tinggi 0. */
+.placeholder {
+  min-height: 12rem;
+}
+
+/* Lebar dihitung dari batas tinggi (64vh) dikonversi lewat rasio, ATAU
+   batas lebar (76vw) -- mana yang lebih kecil -- meniru object-fit:
+   contain untuk elemen tanpa ukuran intrinsik. */
+.placeholder[data-orientation="portrait-tall"] {
+  aspect-ratio: 4 / 5;
+  width: min(76vw, calc(64vh * 4 / 5));
+}
+.placeholder[data-orientation="portrait"] {
+  aspect-ratio: 3 / 4;
+  width: min(76vw, calc(64vh * 3 / 4));
+}
+.placeholder[data-orientation="landscape"] {
+  aspect-ratio: 3 / 2;
+  width: min(76vw, calc(64vh * 3 / 2));
+}
+.placeholder[data-orientation="square"] {
+  aspect-ratio: 1 / 1;
+  width: min(76vw, 64vh);
+}
+
+.placeholder[data-tone="rose"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-pink-primary) 0%, var(--color-pink-deep) 100%);
+}
+.placeholder[data-tone="blush"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-cream) 0%, var(--color-pink-soft) 100%);
+}
+.placeholder[data-tone="blue"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-blue-primary) 0%, var(--color-blue-deep) 100%);
+}
+.placeholder[data-tone="cream"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-warm-white) 0%, var(--color-off-white) 100%);
+}
+/* Sengaja dibuat jelas LEBIH TERANG & lebih hangat daripada backdrop
+   (yang nyaris hitam) -- tone charcoal sebelumnya nyaris identik dengan
+   warna overlay, itulah sebabnya foto terasa "tenggelam" ke background. */
+.placeholder[data-tone="charcoal"] {
+  background: radial-gradient(120% 120% at 50% 25%, #746a64 0%, #4a423d 100%);
+}
+
+.placeholderIcon {
+  color: var(--color-warm-white);
+  opacity: 0.6;
+}
+
+/* ============ Meta -- selalu punya ruang, dengan fallback jujur ============ */
+.meta {
+  text-align: center;
+  max-width: 28rem;
+  padding: 0 var(--space-sm);
+}
+
+.metaDate {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-pink-primary);
+}
+
+.metaCaption {
+  display: block;
+  margin-top: var(--space-3xs);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1vw + 0.85rem, 1.15rem);
+  color: var(--color-warm-white);
+}
+
+.metaCaption[data-fallback="true"] {
+  color: var(--color-muted);
+}
+
+/* ============ Controls ============ */
+.closeButton {
+  position: fixed;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target-min);
+  min-height: var(--tap-target-min);
+  color: var(--color-warm-white);
+  border-radius: 50%;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.closeButton:hover {
+  background-color: rgba(251, 248, 243, 0.12);
+}
+
+.navButton {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .navButton {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    color: var(--color-warm-white);
+    border-radius: 50%;
+    transition: background-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .navButton:hover:not(:disabled) {
+    background-color: rgba(251, 248, 243, 0.12);
+  }
+
+  .navButton:disabled {
+    opacity: 0.3;
+  }
+
+  .navPrevious {
+    left: var(--space-sm);
+  }
+
+  .navNext {
+    right: var(--space-sm);
+  }
+}
+
+.counter {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============ Mobile: batas lebih ketat, tetap utuh ============ */
+@media (max-width: 47.99rem) {
+  .image {
+    max-width: 90vw;
+    max-height: 65vh;
+  }
+
+  .placeholder {
+    max-width: 90vw;
+    max-height: 65vh;
+  }
+
+  .placeholder[data-orientation="portrait-tall"] {
+    width: min(90vw, calc(65vh * 4 / 5));
+  }
+  .placeholder[data-orientation="portrait"] {
+    width: min(90vw, calc(65vh * 3 / 4));
+  }
+  .placeholder[data-orientation="landscape"] {
+    width: min(90vw, calc(65vh * 3 / 2));
+  }
+  .placeholder[data-orientation="square"] {
+    width: min(90vw, 65vh);
+  }
+}

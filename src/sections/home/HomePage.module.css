@@ -1,0 +1,206 @@
+.page {
+  position: relative;
+  min-height: 100dvh;
+  background-color: var(--color-charcoal);
+  color: var(--color-warm-white);
+  overflow: hidden;
+}
+
+.parallaxLayer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/*
+  Hero dipersingkat (dulu 60dvh) supaya rose flood di dasarnya sudah
+  terlihat di layar pertama tanpa perlu scroll — inilah salah satu
+  perbaikan utama supaya pink "terasa", bukan cuma ada di bawah lipatan.
+*/
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--content-padding-inline) var(--space-xl);
+  min-height: 44dvh;
+  background-color: var(--color-charcoal);
+  overflow: hidden;
+}
+
+/* Fase 2 — Atmosphere: cahaya ambient dusty rose + secercak biru, sangat halus */
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 24rem at 18% 8%, rgba(217, 168, 172, 0.24), transparent 60%),
+    radial-gradient(26rem 18rem at 88% 12%, rgba(143, 168, 191, 0.1), transparent 60%);
+}
+
+/*
+  Fase 2 (lanjutan) — "flood": rona muted rose yang meresap dari dasar
+  hero, menjembatani transisi ke objectsSection sehingga tidak terasa
+  seperti dua blok warna yang tiba-tiba bertemu.
+*/
+.heroFlood {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 45%,
+    rgba(138, 86, 92, 0.55) 85%,
+    var(--color-pink-deep) 100%
+  );
+}
+
+.title {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: var(--text-display);
+  letter-spacing: 0.01em;
+  color: var(--color-warm-white);
+}
+
+.subtitle {
+  position: relative;
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-off-white);
+  opacity: 0.7;
+}
+
+.scrollCue {
+  position: relative;
+  margin-top: var(--space-xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/*
+  ============ EXPLORATION AREA — VISUAL CENTERPIECE ============
+  Mulai langsung dari muted rose (bukan charcoal) — begitu hero berakhir,
+  pink harus langsung terasa dominan, bukan meredup pelan-pelan lewat
+  zona abu-cokelat yang muram.
+*/
+.objectsSection {
+  position: relative;
+  background-color: var(--color-pink-primary);
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-pink-deep) 0%,
+    var(--color-pink-primary) 20%,
+    var(--color-pink-soft) 52%,
+    var(--color-cream) 100%
+  );
+  overflow: hidden;
+}
+
+/* Bentuk blur besar, translucent — memberi kesan "cahaya", bukan dekorasi datar */
+.atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.atmosphere::before,
+.atmosphere::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+
+.atmosphere::before {
+  width: 42rem;
+  height: 42rem;
+  top: -10rem;
+  left: -12rem;
+  background: radial-gradient(circle, rgba(251, 248, 243, 0.4), transparent 70%);
+}
+
+.atmosphere::after {
+  width: 34rem;
+  height: 34rem;
+  bottom: 8%;
+  right: -10rem;
+  background: radial-gradient(circle, rgba(143, 168, 191, 0.16), transparent 70%);
+}
+
+.objects {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-lg) var(--content-padding-inline) var(--space-3xl);
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+@media (min-width: 56rem) {
+  .objects {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(5.5rem, auto);
+    gap: var(--space-lg);
+    padding-block: var(--space-2xl) var(--space-3xl);
+  }
+
+  .objects > :nth-child(1) {
+    grid-column: 1 / 6;
+    grid-row: 1 / 3;
+  }
+  .objects > :nth-child(2) {
+    grid-column: 7 / 10;
+    grid-row: 1 / 2;
+  }
+  .objects > :nth-child(3) {
+    grid-column: 10 / 13;
+    grid-row: 1 / 3;
+  }
+  .objects > :nth-child(4) {
+    grid-column: 1 / 4;
+    grid-row: 3 / 5;
+  }
+  .objects > :nth-child(5) {
+    grid-column: 4 / 8;
+    grid-row: 3 / 4;
+  }
+  .objects > :nth-child(6) {
+    grid-column: 8 / 13;
+    grid-row: 3 / 6;
+  }
+  .objects > :nth-child(7) {
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+  }
+}
+
+/* Mobile: kurangi jumlah layer & radius blur demi performa */
+@media (max-width: 47.99rem) {
+  .hero {
+    min-height: 38dvh;
+  }
+
+  .atmosphere::before {
+    width: 26rem;
+    height: 26rem;
+    filter: blur(60px);
+  }
+
+  .atmosphere::after {
+    display: none;
+  }
+}
+
+

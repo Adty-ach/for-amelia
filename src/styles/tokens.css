@@ -1,0 +1,91 @@
+/*
+  Design Tokens — FOR AMELIA
+  ---------------------------------
+  Sumber kebenaran untuk seluruh warna, tipografi, spacing, dan motion.
+  Jangan hardcode nilai warna/ukuran langsung di komponen — selalu rujuk token ini.
+*/
+
+:root {
+  /* ============ COLOR — PRIMARY (PINK / AMELIA) ============ */
+  --color-pink-primary: #d9a8ac; /* dusty rose — aksen utama */
+  --color-pink-deep: #b9767c; /* muted rose — CTA aktif, penekanan */
+  --color-pink-soft: #f1dcdb; /* blush — background lembut */
+
+  /* ============ COLOR — SECONDARY (BLUE / ADIT) ============ */
+  --color-blue-primary: #8fa8bf; /* soft blue — aksen sekunder */
+  --color-blue-deep: #3e5c76; /* deep blue — teks penekanan, link */
+
+  /* ============ COLOR — NEUTRAL ============ */
+  --color-cream: #f6efe6;
+  --color-warm-white: #fbf8f3;
+  --color-off-white: #efe7dc;
+  --color-charcoal: #2b2622;
+  --color-muted: #8c8074; /* muted taupe — teks sekunder, metadata */
+
+  /* ============ COLOR — SEMANTIC ============ */
+  --color-bg-default: var(--color-warm-white);
+  --color-bg-elevated: var(--color-cream);
+  --color-bg-inverse: var(--color-charcoal);
+  --color-text-primary: var(--color-charcoal);
+  --color-text-inverse: var(--color-warm-white);
+  --color-text-muted: var(--color-muted);
+  --color-border-subtle: var(--color-off-white);
+  --color-focus-ring: var(--color-blue-deep);
+
+  /* ============ TYPOGRAPHY — FAMILY ============ */
+  --font-serif: "Fraunces", "Newsreader", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ============ TYPOGRAPHY — SCALE (mobile-first, clamp ke desktop) ============ */
+  --text-display: clamp(2.5rem, 6vw + 1rem, 6rem);
+  --text-section: clamp(1.75rem, 3.5vw + 0.75rem, 3rem);
+  --text-quote: clamp(1.15rem, 1.5vw + 0.75rem, 1.75rem);
+  --text-body: clamp(1rem, 0.4vw + 0.9rem, 1.125rem);
+  --text-caption: clamp(0.72rem, 0.2vw + 0.68rem, 0.8125rem);
+  --text-ui: clamp(0.8rem, 0.2vw + 0.78rem, 0.875rem);
+
+  /* ============ TYPOGRAPHY — LINE HEIGHT & TRACKING ============ */
+  --leading-tight: 1.1;
+  --leading-snug: 1.35;
+  --leading-relaxed: 1.65;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.16em;
+
+  /* ============ SPACING ============ */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* ============ LAYOUT ============ */
+  --content-max-width: 76rem;
+  --content-padding-inline: clamp(1.25rem, 5vw, 4rem);
+  --tap-target-min: 44px;
+
+  /* ============ RADIUS — sengaja sangat kecil, editorial bukan app dashboard ============ */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ============ MOTION — DURATION ============ */
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 750ms;
+
+  /* ============ MOTION — EASING ============ */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-soft: cubic-bezier(0.7, 0, 0.84, 0);
+
+  /* ============ Z-INDEX SCALE ============ */
+  --z-base: 0;
+  --z-anchor: 40;
+  --z-player: 50;
+  --z-transition-overlay: 60;
+}

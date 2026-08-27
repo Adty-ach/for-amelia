@@ -1,0 +1,175 @@
+.page {
+  min-height: 100dvh;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  padding-bottom: var(--space-3xl);
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: calc(var(--space-lg) + var(--space-md)) var(--content-padding-inline) var(--space-lg);
+  overflow: hidden;
+}
+
+.introWash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(28rem 16rem at 50% 0%, rgba(217, 168, 172, 0.16), transparent 65%);
+}
+
+.eyebrow {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-pink-deep);
+}
+
+.title {
+  position: relative;
+  margin-top: var(--space-2xs);
+  font-family: var(--font-serif);
+  font-size: var(--text-section);
+}
+
+.subtitle {
+  position: relative;
+  margin-top: var(--space-3xs);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-ui);
+  color: var(--color-muted);
+  max-width: 26rem;
+}
+
+/* ============ Layout: now playing + track list ============ */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: 0 var(--content-padding-inline);
+}
+
+@media (min-width: 56rem) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-2xl);
+  }
+}
+
+/* ============ Now playing panel ============ */
+.nowPlaying {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background-color: var(--color-warm-white);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(43, 38, 34, 0.06);
+}
+
+@media (min-width: 56rem) {
+  .nowPlaying {
+    position: sticky;
+    top: var(--space-lg);
+    flex: 0 0 18rem;
+  }
+}
+
+.nowPlayingEyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-pink-deep);
+}
+
+.cover {
+  width: 9rem;
+  height: 9rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-pink-primary) 0%, var(--color-pink-deep) 100%);
+  color: var(--color-warm-white);
+  opacity: 0.9;
+}
+
+.nowPlayingTitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-charcoal);
+}
+
+.nowPlayingArtist {
+  margin-top: var(--space-3xs);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  color: var(--color-muted);
+}
+
+.nowPlayingNote {
+  margin-top: var(--space-2xs);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+  max-width: 16rem;
+}
+
+.playToggle {
+  margin-top: var(--space-2xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-pink-deep);
+  color: var(--color-warm-white);
+  transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-out-soft);
+}
+
+.playToggle:hover {
+  transform: scale(1.05);
+}
+
+.playToggle:active {
+  transform: scale(0.95);
+}
+
+/* ============ Track list ============ */
+.trackList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}

@@ -1,0 +1,175 @@
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-out-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover,
+  .card:focus-visible {
+    transform: translateY(-3px);
+    z-index: 2;
+  }
+}
+
+/* ============ Tier -> lebar grid ============ */
+.tierSmall {
+  grid-column: span 1;
+}
+.tierMedium {
+  grid-column: span 1;
+}
+.tierFeature {
+  grid-column: span 2;
+}
+
+@media (min-width: 40rem) {
+  .tierSmall {
+    grid-column: span 2;
+  }
+  .tierMedium {
+    grid-column: span 3;
+  }
+  .tierFeature {
+    grid-column: span 4;
+  }
+}
+
+/* Offset halus, terkontrol -- bukan acak -- supaya baris tidak sejajar kaku */
+@media (min-width: 40rem) {
+  .card:nth-child(4n + 2) {
+    margin-top: var(--space-lg);
+  }
+}
+
+/* ============ Aspect ratio -> proporsi fotografis asli ============ */
+.frame {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.orientation-portrait-tall {
+  aspect-ratio: 4 / 5;
+}
+.orientation-portrait {
+  aspect-ratio: 3 / 4;
+}
+.orientation-landscape {
+  aspect-ratio: 3 / 2;
+}
+.orientation-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* ============ Foto asli ============ */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-out-soft);
+}
+
+.image[data-loaded="true"] {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .image {
+    transform: scale(1.03);
+  }
+}
+
+/* ============ Placeholder — bingkai foto, bukan blok warna acak ============ */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.placeholder[data-tone="rose"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-pink-primary) 0%, var(--color-pink-deep) 100%);
+}
+.placeholder[data-tone="blush"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-cream) 0%, var(--color-pink-soft) 100%);
+}
+.placeholder[data-tone="blue"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-blue-primary) 0%, var(--color-blue-deep) 100%);
+}
+.placeholder[data-tone="cream"] {
+  background: radial-gradient(120% 120% at 50% 25%, var(--color-warm-white) 0%, var(--color-off-white) 100%);
+}
+.placeholder[data-tone="charcoal"] {
+  background: radial-gradient(120% 120% at 50% 25%, #4a4340 0%, var(--color-charcoal) 100%);
+}
+
+/* Garis bingkai tipis di dalam -- kesan "photo mount", bukan color swatch */
+.placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0.7rem;
+  border: 1px solid rgba(251, 248, 243, 0.28);
+  pointer-events: none;
+}
+
+.placeholder[data-tone="cream"]::after {
+  border-color: rgba(43, 38, 34, 0.14);
+}
+
+.placeholderIcon {
+  position: relative;
+  opacity: 0.55;
+}
+
+.placeholder[data-tone="cream"] .placeholderIcon {
+  color: var(--color-charcoal);
+}
+.placeholder:not([data-tone="cream"]) .placeholderIcon {
+  color: var(--color-warm-white);
+}
+
+/* ============ Overlay caption saat hover (desktop) ============ */
+.overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--space-sm) var(--space-xs) var(--space-2xs);
+  background: linear-gradient(to top, rgba(43, 38, 34, 0.6), transparent);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-out-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .overlay,
+  .card:focus-visible .overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlayDate {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-pink-primary);
+}
+
+.overlayCaption {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-ui);
+  color: var(--color-warm-white);
+}

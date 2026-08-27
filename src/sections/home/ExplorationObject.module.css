@@ -1,0 +1,89 @@
+.object {
+  position: relative;
+  min-height: var(--tap-target-min);
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-3xs);
+  padding: var(--space-md) 0;
+  border-top: 1px solid rgba(43, 38, 34, 0.14);
+  height: 100%;
+  min-height: var(--tap-target-min);
+}
+
+.number {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-pink-deep);
+}
+
+/* Titik biru kecil — satu-satunya sentuhan "blue accent" di tiap object,
+   muncul halus saat hover sebagai indikator aktif. */
+.number::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-blue-deep);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-out-soft);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.2vw + 1rem, 2.5rem);
+  color: var(--color-charcoal);
+  transition: color var(--duration-normal) var(--ease-out-soft),
+    transform var(--duration-normal) var(--ease-out-soft);
+}
+
+.tagline {
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  color: var(--color-charcoal);
+  opacity: 0.5;
+  transition: opacity var(--duration-normal) var(--ease-out-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .object:hover .number::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .object:hover .title {
+    color: var(--color-pink-deep);
+    transform: translateX(0.35rem);
+  }
+
+  .object:hover .tagline {
+    opacity: 0.8;
+  }
+}
+
+/* ============ Layout spatial editorial — hanya di layar cukup lebar ============ */
+/* Penempatan grid asimetris per-item didefinisikan di HomePage.module.css,
+   karena grid-template-area/nth-child harus berada di file yang sama dengan
+   container-nya agar CSS Modules scoping tetap konsisten. */
+@media (min-width: 56rem) {
+  .object {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .link {
+    border-top: none;
+    padding: 0;
+    min-height: 0;
+  }
+}
