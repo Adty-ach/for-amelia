@@ -41,7 +41,7 @@ export const memories: Memory[] = [
   {
     id: "memory-pink",
     title: "Pink",
-    note: "Warna kesukaanmu nihhh. Salah satu warna yang sekarang otomatis membuatku mengingatmu.",
+    note: "Salah satu warna yang sekarang otomatis membuatku mengingatmu.",
     category: "little-things",
     accent: "rose",
   },

@@ -32,7 +32,7 @@ export type PlaceholderTone = "rose" | "blush" | "blue" | "cream" | "charcoal";
 export type PhotoCollection = "her" | "little-things" | "our-chapters" | "through-my-camera";
 
 export const collectionLabels: Record<PhotoCollection, string> = {
-  her: "Her",
+  her: "Princess",
   "little-things": "Little Things",
   "our-chapters": "Our Chapters",
   "through-my-camera": "Through My Camera",

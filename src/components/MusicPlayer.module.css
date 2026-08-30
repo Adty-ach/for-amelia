@@ -1,7 +1,7 @@
 .wrapper {
   position: fixed;
   right: var(--space-sm);
-  bottom: var(--space-sm);
+  bottom: max(var(--space-sm), env(safe-area-inset-bottom));
   z-index: var(--z-player);
   display: flex;
   align-items: center;
@@ -101,6 +101,48 @@
   min-width: var(--tap-target-min);
   min-height: var(--tap-target-min);
   color: var(--color-text-muted);
+}
+
+/* ============ Collapse / expand (State A <-> State B) ============ */
+.collapseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target-min);
+  min-height: var(--tap-target-min);
+  color: var(--color-text-muted);
+  border-radius: 50%;
+  transition: color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.collapseButton:hover {
+  background-color: var(--color-pink-soft);
+  color: var(--color-pink-deep);
+}
+
+/* Mini trigger saat player di-collapse -- tetap di posisi yang sama
+   (kanan-bawah), hanya ukurannya yang menyusut. */
+.collapsedTrigger {
+  position: fixed;
+  right: var(--space-sm);
+  bottom: max(var(--space-sm), env(safe-area-inset-bottom));
+  z-index: var(--z-player);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target-min);
+  height: var(--tap-target-min);
+  color: var(--color-pink-deep);
+  background-color: rgba(251, 248, 243, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 50%;
+  box-shadow: 0 2px 16px rgba(43, 38, 34, 0.1);
+}
+
+.collapsedTrigger:hover {
+  background-color: var(--color-pink-soft);
 }
 
 @media (max-width: 30rem) {
