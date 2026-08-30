@@ -214,15 +214,143 @@ export const chapters: Chapter[] = [
   {
     id: "chapter-4",
     order: 4,
-    title: "Tempat Untuk Bercerita",
-    status: "placeholder",
-    pages: [],
+    title: "Dua Jalan, Satu Percakapan",
+    status: "available",
+    pages: [
+      {
+        id: "chapter-4-1",
+        type: "narrative",
+        content: [
+          "Setelah itu, percakapan kami semakin sulit disebut sebagai percakapan antara dua mutual Instagram. Bukan karena tiba-tiba ada sesuatu yang berubah secara besar. Tidak ada satu hari tertentu ketika kami bangun lalu sepakat bahwa mulai sekarang kami akan menjadi dekat. Semuanya justru berjalan seperti biasanya. Pelan. Hampir tidak terasa. Hanya saja, topik yang dibicarakan mulai berubah. ",
+          "Kalau sebelumnya kami lebih sering membicarakan novel, sekolah, mimpi, atau hal-hal random, perlahan Amelia mulai membawa cerita yang lebih personal. Tentang hal-hal yang membuatnya kesal. Tentang sesuatu yang terjadi di rumah. Tentang sekolah. Tentang orang lain. Tentang dirinya sendiri. Aku mulai mendapatkan bagian-bagian cerita yang biasanya mungkin tidak akan diceritakan kepada sembarang orang. Dan aku tidak pernah meminta semua itu.",
+          "Dia hanya mulai menceritakannya. Salah satu yang paling kuingat adalah ketika dia bercerita tentang pekerjaannya di sebuah cafe. Ada seorang wanita yang memiliki masalah dengan kakaknya Amelia. Masalah yang sebenarnya bukan milik Amelia, tetapi entah bagaimana kemarahannya justru diarahkan kepadanya. Ada ancaman. Ada perkataan yang menyakitkan. Ada hal-hal yang seharusnya tidak perlu diterima Amelia, tetapi tetap harus dia dengarkan. Dan setelah menahan semuanya, dia pulang dalam keadaan sangat lelah. Dia menangis. ",
+          "Aku membaca ceritanya dan untuk beberapa saat tidak tahu harus menjawab apa. Ada perbedaan antara memberikan nasihat ketika seseorang bertanya dan mendengarkan ketika seseorang hanya sedang berusaha mengeluarkan semua yang ada di kepalanya. Aku memilih yang kedua. Aku mengatakan bahwa perasaannya wajar. Bahwa dia memang berhak merasa lelah setelah mengalami semuanya. Aku tidak berada di sana. Aku tidak tahu seluruh kejadian secara langsung. Jadi aku tidak ingin berpura-pura tahu bagaimana semuanya terjadi. Aku hanya bisa mendengarkan dari apa yang dia ceritakan kepadaku."
+        ],
+      },
+      {
+        id: "chapter-4-2",
+        type: "narrative",
+        content: [
+          "Kemudian Amelia mengatakan sesuatu yang membuatku sedikit bingung. Dia takut aku akan bosan mendengarkan ceritanya. Aku justru merasa pertanyaannya aneh. Kalau aku memang ingin lebih dekat dengannya, kenapa aku harus bosan hanya karena mengetahui bagian dirinya yang tidak selalu menyenangkan? ",
+          "Aku mengatakan kepadanya bahwa aku tidak akan bosan. Aku ingin mengenalnya lebih dekat. Bukan hanya Amelia yang suka bercanda. Bukan hanya Amelia yang sering mengirim chat dengan kata-kata yang dipanjang-panjangkan sampai kelihatan seperti sedang berteriak sambil tertawa. Aku juga ingin tahu sisi dirinya yang sedang lelah. Yang sedang sedih. Yang sedang bingung. Yang mungkin tidak selalu ingin terlihat kuat. Dan entah kenapa, setelah aku mengatakan itu, jawabannya cukup sederhana.",
+        ],
+      },
+      {
+        id: "chapter-4-princess",
+        type: "chat",
+        messages: [
+          {from: "amelia", text: "Kalau memang kamu mau lebih dekat, yaa aku nggak akan nolakkk"},
+        ], 
+      },
+      {
+        id: "chapter-4-3",
+        type: "narrative",
+        content: [
+          "Aku membaca kalimat itu lebih dari sekali. Bukan karena aku menganggapnya sebagai sesuatu yang besar. Justru karena aku tidak ingin membuatnya menjadi sesuatu yang bukan maksudnya. Tidak ada pengakuan. Tidak ada status. Tidak ada janji. Hanya sebuah kalimat yang mengatakan bahwa ruang itu memang ada. Amelia tidak menutup pintu ketika aku bilang ingin mengenalnya lebih dekat. Dan mungkin itu saja sudah cukup.",
+          "Tidak lama setelah kejadian itu, Amelia akhirnya memutuskan untuk berhenti dari pekerjaannya. Dia resign. Katanya dia ingin lebih fokus pada sekolah dan lomba. Aku masih ingat bagaimana dia sempat bercanda bahwa dirinya hanya bekerja satu hari sebelum akhirnya berhenti. Aku tertawa membaca itu. Satu hari. Lalu selesai. Tapi di balik candaan tersebut, ada sesuatu yang menurutku cukup dewasa. Dia tahu kapan sesuatu sudah membuatnya terlalu lelah. Dia tahu bahwa tidak semua hal harus dipertahankan hanya karena sudah dimulai. Dan mungkin memilih berhenti bukan berarti menyerah. Kadang justru berarti seseorang akhirnya memilih dirinya sendiri. Aku tidak merasa perlu menyuruhnya melakukan apa pun. Dia sudah membuat keputusan. Aku hanya mendengarkan dan mendukungnya.",
+          "Yang menarik, setelah semua cerita tersebut, Amelia tidak kemudian berhenti bercerita. Justru sebaliknya. Percakapan kami terasa semakin terbuka. Dia pernah bertanya sesuatu yang sangat berbeda dari cerita tentang pekerjaan. "
+        ],
+      },
+      {
+        id: "chapter-4-princess-2",
+        type: "chat",
+        messages: [
+          {from: "amelia", text: "Do you think being pretty can actually ruin a friendship? :("},
+        ],
+      },
+      {
+        id: "chapter-4-4",
+        type: "narrative",
+        content: [
+          "Aku sempat berpikir dari mana pertanyaan seperti itu muncul. Ternyata dia sedang bercerita tentang seorang temannya yang mulai berubah. Ada beberapa ucapan yang membuat Amelia merasa mungkin ada rasa iri atau rasa tidak nyaman dari temannya ini. Salah satunya bahkan mempertanyakan apakah kecantikan memang sepenting itu. Kami akhirnya membicarakannya cukup lama. Menurutku bukan kecantikan itu sendiri yang merusak persahabatan.",
+          "Yang bisa mengubah hubungan adalah bagaimana seseorang mulai memperlakukan orang lain setelah membandingkan dirinya sendiri. Rasa iri, rasa tidak cukup, keinginan untuk terlihat lebih baik, atau perasaan bahwa seseorang sedang kalah dari orang lain. Semua itu bisa mengubah sesuatu yang awalnya sederhana. Aku tidak tahu apakah pendapat kami sepenuhnya benar. Tapi aku senang Amelia mau membicarakan hal seperti itu denganku. Karena semakin lama, aku mulai mengerti bahwa kedekatan bukan hanya ketika seseorang bercerita tentang hal-hal yang dia sukai. Kadang justru terlihat ketika dia mulai membawa pertanyaan yang ada di kepalanya sendiri."
+        ],
+      },
+      {
+        id: "chapter-4-5",
+        type: "narrative",
+        content: [
+          "Dan di sela semua itu, ada satu kebiasaan lain yang mulai muncul. Amelia mulai senang ketika aku tiba-tiba mengabarinya. Dia pernah mengatakan bahwa setiap kali tiba-tiba mendapat pesan dariku, dia sering tersenyum sendiri karena menurutnya lucu. Aku membaca kalimat itu dan tertawa kecil. Ternyata muncul sebagai notifikasi bisa menjadi sesuatu yang membuat seseorang tersenyum.",
+          "Dia bahkan mengatakan bahwa aku boleh sering mengabarinya meskipun dia tidak selalu bisa langsung membalas. Dia senang melihat notifikasi dariku. Entah kenapa, kalimat itu cukup lama tinggal di kepalaku. Mungkin karena sebelumnya aku terlalu sering melihat kecepatan balasan sebagai sesuatu yang harus kuperhatikan. Kalau Amelia lama membalas, pikiranku bisa mulai ke mana-mana. Otak memang kadang memiliki bakat luar biasa dalam membuat cerita dari informasi yang bahkan tidak lengkap.",
+          "Padahal Amelia sudah mengatakan sendiri bahwa aku tidak perlu berhenti mengabarinya hanya karena dia sedang sibuk. Dia bisa saja belum punya waktu membalas, tetapi itu tidak berarti dia keberatan ketika melihat namaku muncul di layar. Dan mungkin di situlah aku mulai belajar. Tidak semua jeda berarti menjauh. Tidak semua keterlambatan berarti perubahan. Kadang seseorang hanya sedang menjalani hari yang tidak bisa kita lihat.",
+          "Di antara semua hal yang mulai menjadi kebiasaan, ada satu hal lain yang awalnya terasa sangat sederhana. Amelia mulai sering mengingatkanku untuk sholat. Awalnya hanya berupa pertanyaan kecil di sela percakapan."
+        ]
+      },
+      {
+        id: "chapter-4-princess-3",
+        type: "chat",
+        messages: [
+          {from: "amelia", text: "Kamu udah sholat Maghrib?"},
+        ]
+      },
+      {
+        id: "chapter-4-6",
+        type: "narrative",
+        content: [
+          "Aku menjawab sudah. Kelihatannya sederhana. Tapi kemudian dia mengatakan bahwa dia ikut senang karena aku sudah sholat. Bahkan dia sempat bercanda bahwa nanti dia akan menjadi alarm sholatku. Aku tertawa membaca itu. Ada sesuatu yang lucu dari membayangkan seseorang yang berada jauh di pulau lain tiba-tiba mengambil tugas sebagai pengingat waktu ibadahku. Dan aku tentu sangat amat menghargai itu.",
+          "Tapi ternyata dia tidak hanya bercanda. Beberapa hari kemudian, Amelia justru meminta tahu jadwal sholatku. "
+        ]
+      },
+      {
+        id: "chapter-4-princess-4",
+        type: "chat",
+        messages: [
+          {from: "amelia", text: "Aku mau tauu jadwal shalat kamuuu jugaa, biar nanti aku bisa ikutan ngingetinnn."},
+        ]
+      },
+      {
+        id: "chapter-4-7",
+        type: "narrative",
+        content: [
+          "Aku lalu memberitahunya. Subuh sekitar jam lima pagi. Dzuhur jam dua belas siang. Ashar jam empat sore. Maghrib jam enam. Isya biasanya sekitar jam delapan atau sembilan, setelah aku selesai cuci muka. Tidak lama kemudian, dia membalas bahwa jadwal itu sudah dia catat. Bahkan dia mengulanginya satu per satu. Subuh jam lima. Dzuhur jam dua belas. Ashar jam empat. Maghrib jam enam. Isya sekitar jam delapan sampai sembilan. Dia sampai mengingatnya kembali dengan lengkap. Dan entah kenapa, hal sederhana seperti itu terasa cukup berbeda. Lucunya dia sampai membuat alarm untuk jam sholat.",
+          "Aku kemudian bertanya balik tentang jadwal ibadahnya. Di situlah kami sama-sama tahu bahwa ada perbedaan yang memang selalu ada di antara kami. Kami berbeda agama. Tetapi perbedaan itu tidak pernah muncul sebagai sesuatu yang harus diperdebatkan. Kami hanya tahu bahwa ada bagian dalam kehidupan masing-masing yang penting dan tidak bisa disamakan begitu saja. Aku tetap menjalankan ibadahku dengan caraku. Amelia menjalankan keyakinannya dengan caranya. Dan anehnya, kami justru bisa saling mengingatkan tanpa merasa harus menjadi sama."
+        ]
+      },
+      {
+        id: "chapter-4-8",
+        type: "narrative",
+        content: [
+          "Aku pun mulai melakukan hal yang sama kepadanya. Kalau tiba waktunya, aku mengingatkan. Kalau dia sedang lupa, aku mengingatkan. Bukan sebagai perintah. Hanya perhatian kecil. Amelia pernah mengatakan bahwa kami bisa sama-sama menjaga ibadah dan saling mengingatkan kalau ada yang lupa. ",
+          "Aku menerimanya dengan santai. Kadang pesan sederhana muncul di tengah percakapan. Jangan lupa sholat. Sudah ibadah? Sudah. Lalu selesai. Beberapa menit kemudian kami bisa kembali membicarakan sekolah, lomba, makanan, atau sesuatu yang sama sekali tidak berhubungan dengan ibadah. Mungkin justru itu yang membuatnya terasa natural.",
+          "Perbedaan agama bukan sesuatu yang harus membuat dua orang saling menjauh. Setidaknya bagi kami, itu hanya salah satu bagian dari diri masing-masing yang perlu dihormati. Kami tidak harus percaya dengan cara yang sama untuk bisa peduli ketika yang lain hampir melupakan sesuatu yang menurutnya penting. Dan mungkin dari situlah aku mulai memahami bahwa perhatian tidak selalu berbentuk sesuatu yang besar. Kadang perhatian hanya berupa pengingat. Satu pesan. Satu pertanyaan. Satu kebiasaan kecil yang awalnya tidak direncanakan, lalu perlahan menjadi bagian dari percakapan.",
+          "Mungkin justru itu yang menarik tentang kedekatan kami. Ada begitu banyak hal yang berbeda di antara kami. Tempat tinggal. Kebiasaan. Kehidupan sehari-hari. Bahkan keyakinan. Tapi perbedaan itu tidak selalu harus menjadi jarak. Kadang ia hanya menjadi sesuatu yang kita tahu ada, lalu kita belajar menghormatinya tanpa harus menghilangkannya"
+        ]
+      }
+    ],
   },
   {
     id: "chapter-5",
     order: 5,
-    title: "Hal-Hal yang Tidak Selalu Bisa Dijelaskan",
+    title: "Hal-Hal yang Mulai Kami Pahami",
     status: "placeholder",
     pages: [],
   },
+  {
+    id: "chapter-6",
+    order: 6,
+    title: "Ketika Namaku Sampai ke Rumah",
+    status: "placeholder",
+    pages: [],
+  },
+  {
+    id: "chapter-7",
+    order: 7,
+    title: "Novel yang Ditulis untukku",
+    status: "placeholder",
+    pages: [],
+  },
+  {
+    id: "chapter-8",
+    order: 8,
+    title: "Cerita yang Kami Sukai",
+    status: "placeholder",
+    pages: [],
+  },
+  {
+    id: "chapter-9",
+    order: 9,
+    title: "Rumah yang Tidak Perlu Dikunci",
+    status: "placeholder",
+    pages: [],
+  }
 ];
