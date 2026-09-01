@@ -5,6 +5,7 @@ import { siteConfig } from "../../data/siteConfig";
 import { useHasFinePointer } from "../../hooks/usePointerType";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { ExplorationObject } from "./ExplorationObject";
+import { HomeDecoration } from "./HomeDecoration";
 import styles from "./HomePage.module.css";
 
 /**
@@ -123,6 +124,12 @@ export default function HomePage() {
           />
           <motion.div className={styles.heroFlood} variants={atmosphereVariants} initial="hidden" animate="visible" />
 
+          {/* Detail dekoratif halus — dirender sebelum title agar selalu
+              berada di belakangnya secara stacking order (lihat
+              HomeDecoration.tsx). Murni atmospheric, tidak mengganggu
+              keterbacaan. */}
+          <HomeDecoration variant="hero" />
+
           {/* Fase 3 — Title */}
           <motion.h1 className={styles.title} variants={titleVariants} initial="hidden" animate="visible">
             {siteConfig.title}
@@ -146,6 +153,7 @@ export default function HomePage() {
         {/* Fase 5 (background sudah menyatu lewat CSS) + Fase 6 (reveal) */}
         <section className={styles.objectsSection}>
           <div className={styles.atmosphere} aria-hidden="true" />
+          <HomeDecoration variant="field" />
           <motion.nav
             className={styles.objects}
             aria-label="Pilihan pengalaman"

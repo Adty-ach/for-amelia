@@ -1,0 +1,113 @@
+/*
+  Dekorasi homepage — murni atmospheric, tidak pernah bagian dari alur
+  baca/interaksi. Semua elemen: pointer-events: none & aria-hidden
+  (di komponen). Ditempatkan di DOM sebelum konten agar selalu berada
+  di belakangnya secara stacking order (lihat catatan di HomePage.tsx).
+*/
+
+.hero,
+.field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ============ HERO ============ */
+
+.heroSparkleA {
+  position: absolute;
+  top: 21%;
+  left: 9%;
+  width: 15px;
+  height: 15px;
+}
+
+.heroSparkleB {
+  position: absolute;
+  bottom: 20%;
+  right: 10%;
+  width: 10px;
+  height: 10px;
+}
+
+.heroLine {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 3.5rem;
+  height: 1px;
+  transform: translateX(-50%);
+  transform-origin: center;
+  background: linear-gradient(to right, transparent, var(--color-pink-primary), transparent);
+}
+
+/* ============ FIELD (exploration area) ============ */
+
+.fieldDotA {
+  position: absolute;
+  top: 1.75rem;
+  left: 15%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-warm-white);
+}
+
+.fieldDotB {
+  position: absolute;
+  top: 1.9rem;
+  right: 17%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--color-blue-primary);
+}
+
+.fieldRule {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 4rem;
+  height: 1px;
+  transform: translateX(-50%);
+  transform-origin: center;
+  background: linear-gradient(to right, transparent, rgba(251, 248, 243, 0.75), transparent);
+}
+
+.fieldPetal {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 7%;
+  width: 34px;
+  height: 34px;
+}
+
+/* ============ MOBILE — lebih sedikit dekorasi ============ */
+@media (max-width: 47.99rem) {
+  .heroSparkleA {
+    width: 11px;
+    height: 11px;
+    top: 16%;
+  }
+
+  .heroSparkleB {
+    display: none;
+  }
+
+  .heroLine {
+    width: 2.5rem;
+    top: 10%;
+  }
+
+  .fieldDotB {
+    display: none;
+  }
+
+  .fieldPetal {
+    width: 26px;
+    height: 26px;
+    bottom: 1.5rem;
+    left: 6%;
+  }
+}
