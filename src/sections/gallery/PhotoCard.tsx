@@ -63,7 +63,7 @@ export function PhotoCard({ photo, index, onOpen, framed = false }: PhotoCardPro
               {photo.caption && <span className={styles.overlayCaption}>{photo.caption}</span>}
             </>
           ) : (
-            <span className={styles.overlayCaption}>catatan menyusul</span>
+            <span className={styles.overlayCaption}>a little moment to remember</span>
           )}
         </div>
       </div>

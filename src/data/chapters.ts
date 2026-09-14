@@ -322,8 +322,17 @@ export const chapters: Chapter[] = [
     id: "chapter-5",
     order: 5,
     title: "Hal-Hal yang Mulai Kami Pahami",
-    status: "placeholder",
-    pages: [],
+    status: "available",
+    pages: [
+      {
+        id: "chapter-5-1",
+        type: "narrative",
+        content: [
+          "Semakin lama kami berbicara, semakin aku menyadari satu hal tentang diriku sendiri. Aku terlalu mudah takut salah. Kadang bukan karena ada masalah besar. Hanya karena aku terlalu memikirkan satu kalimat yang mungkin bagi orang lain sebenarnya sudah selesai. Aku pernah menjelaskan maksud perkataanku kepada Amelia cukup panjang karena takut dia salah memahami. Bahkan satu kata seperti IYA saja bisa membuatku berpikir apakah tadi terdengar seperti aku sedang membentak. Aku takut terdengar menuntut. Takut dia merasa disalahkan.",
+          "Takut percakapan yang seharusnya sederhana justru membuatnya tidak nyaman. Aku menjelaskan maksudku. Amelia justru menenangkan aku. Dia mengatakan bahwa dia tidak marah. Dia tidak sengaja mengabaikanku. Dia hanya sedang Lelah karena waktu itu ternyata kondisinya sedang sakit. Dia hanya sedang sibuk dengan lomba. Dan kalau ada sesuatu yang tidak dia suka, dia akan mengatakan secara langsung. Aku tidak perlu takut dia tiba-tiba menjauh. Dia memahami bahwa aku sedang berusaha jujur. Dia bahkan menghargai aku karena mau menjelaskan."
+        ]
+      }
+    ],
   },
   {
     id: "chapter-6",
