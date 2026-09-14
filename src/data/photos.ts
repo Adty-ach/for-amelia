@@ -55,9 +55,9 @@ export interface Photo {
 
 export const photos: Photo[] = [
   // ===== 01 — HER =====
-  { id: "her-1", src: "/public/amelia 1.jpeg", alt: "Placeholder foto Amelia", orientation: "portrait-tall", placeholderTone: "rose", collection: "her" },
-  { id: "her-2", src: "/public/amelia 2.jpeg", alt: "Placeholder foto Amelia", orientation: "portrait", placeholderTone: "blush", collection: "her" },
-  { id: "her-3", src: "/public/amelia 3.jpeg", alt: "Placeholder foto Amelia", orientation: "portrait-tall", placeholderTone: "cream", collection: "her" },
+  { id: "her-1", src: "/amelia 1.jpeg", alt: "Placeholder foto Amelia", orientation: "portrait-tall", placeholderTone: "rose", collection: "her" },
+  { id: "her-2", src: "/amelia 2.jpeg", alt: "Placeholder foto Amelia", orientation: "portrait", placeholderTone: "blush", collection: "her" },
+  { id: "her-3", src: "/amelia 3.jpeg", alt: "Placeholder foto Amelia", orientation: "portrait-tall", placeholderTone: "cream", collection: "her" },
 
   // ===== 02 — LITTLE THINGS =====
   { id: "little-things-1", src: "", alt: "Placeholder visual — menunggu diisi.", orientation: "square", placeholderTone: "rose", collection: "little-things" },
