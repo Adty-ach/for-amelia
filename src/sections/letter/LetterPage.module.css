@@ -75,37 +75,73 @@
 .letter {
   position: relative;
   width: 100%;
-  max-width: 26rem;
-  padding: var(--space-2xl) var(--space-lg);
+  max-width: 38rem;
+  padding: var(--space-2xl) var(--space-xl);
   background-color: var(--color-cream);
   color: var(--color-charcoal);
   border-radius: var(--radius-md);
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.5);
+  text-align: left;
 }
 
 .salutation {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
+  font-size: clamp(1.6rem, 3vw + 1rem, 2.3rem);
+  line-height: 1.2;
+  color: var(--color-pink-deep);
+  text-align: center;
 }
 
 .letterBody {
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.paragraph {
   font-family: var(--font-serif);
   font-size: 1.05rem;
   line-height: var(--leading-relaxed);
-  color: var(--color-muted);
+  color: var(--color-charcoal);
+  overflow-wrap: anywhere;
 }
 
-.signature {
-  margin-top: var(--space-lg);
+.paragraph em {
+  font-style: italic;
+}
+
+.highlight {
+  margin-block: var(--space-xs);
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--color-pink-deep);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.highlight strong {
+  font-weight: 500;
+}
+
+.closing {
+  margin-top: var(--space-xl);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
   color: var(--color-charcoal);
 }
 
+.closing strong {
+  font-weight: 500;
+}
+
 .backLink {
+  display: inline-block;
   margin-top: var(--space-xl);
   font-family: var(--font-sans);
   font-size: var(--text-caption);
@@ -116,4 +152,14 @@
 
 .backLink:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 30rem) {
+  .letter {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .highlight {
+    font-size: 1.15rem;
+  }
 }

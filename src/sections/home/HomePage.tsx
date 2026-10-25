@@ -5,6 +5,8 @@ import { siteConfig } from "../../data/siteConfig";
 import { useHasFinePointer } from "../../hooks/usePointerType";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { ExplorationObject } from "./ExplorationObject";
+import { FloatingBits } from "./FloatingBits";
+import { LittleCorner } from "./LittleCorner";
 import styles from "./HomePage.module.css";
 
 /**
@@ -146,6 +148,7 @@ export default function HomePage() {
         {/* Fase 5 (background sudah menyatu lewat CSS) + Fase 6 (reveal) */}
         <section className={styles.objectsSection}>
           <div className={styles.atmosphere} aria-hidden="true" />
+          <FloatingBits />
           <motion.nav
             className={styles.objects}
             aria-label="Pilihan pengalaman"
@@ -157,6 +160,7 @@ export default function HomePage() {
               <ExplorationObject key={experience.id} experience={experience} />
             ))}
           </motion.nav>
+          <LittleCorner />
         </section>
       </div>
     </div>

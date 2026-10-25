@@ -22,8 +22,15 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   // Ref (bukan state) karena flag ini murni dikonsumsi di dalam effect,
   // tidak pernah dibaca saat render -- tidak perlu memicu render tambahan.
   const pendingAutoPlayRef = useRef(false);
+  // Salinan terbaru currentIndex untuk event listener <audio> (yang dipasang
+  // sekali saat mount dan tidak boleh membaca state basi).
+  const currentIndexRef = useRef(0);
 
   const currentTrack = songs[currentIndex] ?? null;
+
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -34,7 +41,18 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
         setProgress(audio.currentTime / audio.duration);
       }
     };
-    const handleEnded = () => setIsPlaying(false);
+    // Lagu selesai -> otomatis lanjut ke lagu berikutnya (kembali ke lagu
+    // pertama setelah lagu terakhir). Kalau playlist cuma 1 lagu, ulang lagu itu.
+    const handleEnded = () => {
+      setProgress(0);
+      if (songs.length <= 1) {
+        audio.currentTime = 0;
+        audio.play().catch(() => setIsPlaying(false));
+        return;
+      }
+      pendingAutoPlayRef.current = true;
+      setCurrentIndex((currentIndexRef.current + 1) % songs.length);
+    };
     // Placeholder path (mis. /audio/song-01.mp3) bisa saja belum ada filenya
     // -- jangan biarkan UI terus bilang "playing" kalau sumbernya gagal dimuat.
     const handleError = () => setIsPlaying(false);
@@ -62,7 +80,8 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     const audio = audioRef.current;
     if (!audio || !currentTrack?.src) return;
     audio.play().catch(() => {
-      /* file placeholder belum ada / autoplay ditolak -- abaikan dengan tenang */
+      /* file belum ada / autoplay ditolak -- jangan biarkan UI bilang "playing" */
+      setIsPlaying(false);
     });
   }, [currentIndex, currentTrack]);
 
@@ -72,8 +91,11 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
       setIsPlaying(true);
       return;
     }
+    // Lagu yang sudah selesai diputar ulang dari awal.
+    if (audio.ended) audio.currentTime = 0;
     audio.play().catch(() => {
-      /* autoplay bisa ditolak browser -- abaikan dengan tenang */
+      /* autoplay ditolak / file gagal dimuat */
+      setIsPlaying(false);
     });
     setIsPlaying(true);
   }, [currentTrack]);
@@ -114,9 +136,19 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   /** Dipakai halaman Soundtrack: user memilih track tertentu dari daftar lagu. */
   const selectTrack = useCallback((targetIndex: number) => {
     if (targetIndex < 0 || targetIndex >= songs.length) return;
-    setCurrentIndex(targetIndex);
     setProgress(0);
     setIsPlaying(true);
+    // Track yang sama: src tidak berubah, jadi effect auto-play tidak akan jalan.
+    // Putar ulang langsung dari awal.
+    if (targetIndex === currentIndexRef.current) {
+      const audio = audioRef.current;
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play().catch(() => setIsPlaying(false));
+      }
+      return;
+    }
+    setCurrentIndex(targetIndex);
     pendingAutoPlayRef.current = true;
   }, []);
 

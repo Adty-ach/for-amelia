@@ -82,7 +82,11 @@ export function MemoryDetail({ memory, onClose }: MemoryDetailProps) {
         <span className={styles.eyebrow}>I Remember</span>
         <span className={styles.accentLine} aria-hidden="true" />
         <h2 className={styles.title}>{memory.title}</h2>
-        <p className={styles.note}>{memory.note}</p>
+        <div className={styles.note}>
+          {memory.note.split("\n\n").map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
 
         {(memory.date || memory.relatedChapter) && (
           <div className={styles.footer}>

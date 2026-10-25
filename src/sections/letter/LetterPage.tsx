@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { letterMeta } from "../../data/letterMeta";
 import { siteConfig } from "../../data/siteConfig";
@@ -13,6 +13,24 @@ function isBirthdayReached(birthdayDate: string | null): boolean {
   const today = new Date();
   const target = new Date(`${birthdayDate}T00:00:00`);
   return today >= target;
+}
+
+/** Render **tebal** dan *miring* dari teks surat tanpa dependency markdown. */
+function renderInline(text: string): ReactNode {
+  return text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g).map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith("*") && part.endsWith("*") && part.length > 2) {
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    }
+    return <Fragment key={i}>{part}</Fragment>;
+  });
+}
+
+/** Paragraf yang seluruhnya tebal dianggap kalimat sorotan. */
+function isHighlight(text: string): boolean {
+  return /^\*\*[^*]+\*\*$/.test(text);
 }
 
 /**
@@ -35,7 +53,14 @@ export default function LetterPage() {
   const handleOpen = () => {
     if (isOpening || isOpened) return;
     setIsOpening(true);
-    window.setTimeout(() => setIsOpened(true), prefersReducedMotion ? 350 : 950);
+    window.setTimeout(
+      () => {
+        setIsOpened(true);
+        // Surat panjang: mulai membaca dari atas.
+        window.scrollTo(0, 0);
+      },
+      prefersReducedMotion ? 350 : 950,
+    );
   };
 
   return (
@@ -70,9 +95,19 @@ export default function LetterPage() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: prefersReducedMotion ? 0.3 : 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className={styles.salutation}>{letterMeta.salutation}</h1>
-            <p className={styles.letterBody}>{letterMeta.placeholderBody}</p>
-            <p className={styles.signature}>{letterMeta.signature}</p>
+            <h1 className={styles.salutation}>{letterMeta.title}</h1>
+            <div className={styles.letterBody}>
+              {letterMeta.body.map((paragraph, index) => (
+                <p key={index} className={isHighlight(paragraph) ? styles.highlight : styles.paragraph}>
+                  {renderInline(paragraph)}
+                </p>
+              ))}
+            </div>
+            <div className={styles.closing}>
+              {letterMeta.closing.map((line) => (
+                <p key={line}>{renderInline(line)}</p>
+              ))}
+            </div>
             <Link to="/" className={styles.backLink}>
               Kembali ke beranda
             </Link>

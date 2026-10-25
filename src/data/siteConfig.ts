@@ -17,5 +17,5 @@ export const siteConfig: SiteConfig = {
   title: "FOR AMELIA",
   subtitle: "A little place made just for you.",
   theme: "editorial-cinematic",
-  birthdayDate: null,
+  birthdayDate: "2026-11-02",
 };
