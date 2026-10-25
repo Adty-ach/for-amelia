@@ -54,7 +54,7 @@ export interface Photo {
 }
 
 export const photos: Photo[] = [
-  // ===== 01 — HER =====
+  // ===== 01 — PRINCESS (id: "her") =====
   { id: "her-1", 
     src: "/amelia 1.jpeg", 
     alt: "Placeholder foto Amelia", 
@@ -81,7 +81,7 @@ export const photos: Photo[] = [
     collection: "her",
     caption: "I love this angle, um.. angle or angel",
     date: "07-08-2026"},
-
+    
   // ===== 02 — LITTLE THINGS =====
   { id: "little-things-1", src: "", alt: "Placeholder visual — menunggu diisi.", orientation: "square", placeholderTone: "rose", collection: "little-things" },
   { id: "little-things-2", src: "", alt: "Placeholder visual — menunggu diisi.", orientation: "landscape", placeholderTone: "blush", collection: "little-things" },
@@ -94,7 +94,7 @@ export const photos: Photo[] = [
   { id: "our-chapters-3", src: "", alt: "Placeholder momen cerita — menunggu diisi.", orientation: "square", placeholderTone: "blush", collection: "our-chapters" },
 
   // ===== 04 — THROUGH MY CAMERA =====
-  { id: "camera-1", src: "", alt: "Placeholder foto kamera Adit — menunggu diisi.", orientation: "landscape", placeholderTone: "charcoal", collection: "through-my-camera" },
-  { id: "camera-2", src: "", alt: "Placeholder foto kamera Adit — menunggu diisi.", orientation: "landscape", placeholderTone: "blue", collection: "through-my-camera" },
-  { id: "camera-3", src: "", alt: "Placeholder foto kamera Adit — menunggu diisi.", orientation: "square", placeholderTone: "cream", collection: "through-my-camera" },
+  { id: "camera-1", src: "", alt: "Placeholder foto kamera adty — menunggu diisi.", orientation: "landscape", placeholderTone: "charcoal", collection: "through-my-camera" },
+  { id: "camera-2", src: "", alt: "Placeholder foto kamera adty — menunggu diisi.", orientation: "landscape", placeholderTone: "blue", collection: "through-my-camera" },
+  { id: "camera-3", src: "", alt: "Placeholder foto kamera adty — menunggu diisi.", orientation: "square", placeholderTone: "cream", collection: "through-my-camera" },
 ];

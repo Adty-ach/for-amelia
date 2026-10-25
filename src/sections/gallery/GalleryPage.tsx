@@ -49,7 +49,7 @@ function gridClassForVariant(variant: GridVariant): string {
 
 /**
  * /gallery — "A Little Album for Amelia". Satu album berkelanjutan berisi
- * 4 koleksi (Her, Little Things, Our Chapters, Through My Camera), bukan
+ * 4 koleksi (Princess, Little Things, Our Chapters, Through My Camera), bukan
  * 4 halaman terpisah. Collection index di intro men-scroll ke section
  * terkait — storytelling lewat satu alur, bukan filter/tab dashboard.
  *
@@ -99,7 +99,7 @@ export default function GalleryPage() {
           A Little Album for Amelia
         </motion.h1>
         <motion.p className={styles.subtitle} variants={blurRevealVariants}>
-          Some things just remind me of you.
+          Everything here is about you and some things just remind me of you.
         </motion.p>
 
         <motion.nav className={styles.collectionIndex} variants={blurRevealVariants} aria-label="Koleksi dalam album">
